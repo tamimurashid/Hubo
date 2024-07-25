@@ -30,18 +30,27 @@ PACKAGES=(
     "pandas"
 )
 
+# Initialize counters for success and failure
+SUCCESS_COUNT=0
+FAILURE_COUNT=0
+
 # Install each package and check the result
 for PACKAGE in "${PACKAGES[@]}"; do
     echo "Installing $PACKAGE..."
     pip install "$PACKAGE"
     if [ $? -eq 0 ]; then
         echo "$PACKAGE installed successfully."
+        SUCCESS_COUNT=$((SUCCESS_COUNT + 1))
     else
         echo "Failed to install $PACKAGE."
+        FAILURE_COUNT=$((FAILURE_COUNT + 1))
     fi
 done
 
 # Deactivate the virtual environment
-deactivate
+# deactivate
 
+# Print a summary of the installation results
 echo "Setup complete."
+echo "Successfully installed packages: $SUCCESS_COUNT"
+echo "Failed to install packages: $FAILURE_COUNT"
