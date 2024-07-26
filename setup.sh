@@ -16,6 +16,7 @@ python3 -m venv "$VENV_NAME"
 # Activate the virtual environment
 source "$VENV_NAME/bin/activate"
 
+
 # Define the packages to install
 PACKAGES=(
     "wikipedia"
@@ -46,6 +47,10 @@ for PACKAGE in "${PACKAGES[@]}"; do
         FAILURE_COUNT=$((FAILURE_COUNT + 1))
     fi
 done
+
+cd python_files/face_recorgnition/ 
+echo "installing yolov3 package for image recorgnition"
+git clone https://github.com/zzh8829/yolov3-tf2.git
 
 # Deactivate the virtual environment
 # deactivate
