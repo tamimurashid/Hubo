@@ -34,7 +34,7 @@ PACKAGES=(
 # Initialize counters for success and failure
 SUCCESS_COUNT=0
 FAILURE_COUNT=0
-
+pip install --upgrade pip
 # Install each package and check the result
 for PACKAGE in "${PACKAGES[@]}"; do
     echo "Installing $PACKAGE..."
@@ -48,9 +48,9 @@ for PACKAGE in "${PACKAGES[@]}"; do
     fi
 done
 
-cd python_files/face_recorgnition/ 
-echo "installing yolov3 package for image recorgnition"
-git clone https://github.com/zzh8829/yolov3-tf2.git
+#cd python_files/face_recorgnition/ 
+#echo "installing yolov3 package for image recorgnition"
+#git clone https://github.com/zzh8829/yolov3-tf2.git
 
 # Deactivate the virtual environment
 # deactivate
@@ -59,3 +59,4 @@ git clone https://github.com/zzh8829/yolov3-tf2.git
 echo "Setup complete."
 echo "Successfully installed packages: $SUCCESS_COUNT"
 echo "Failed to install packages: $FAILURE_COUNT"
+source "$VENV_NAME/bin/activate"
